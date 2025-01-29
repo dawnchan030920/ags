@@ -36,6 +36,7 @@
     devShells.${system} = {
       default = pkgs.mkShell {
         buildInputs = [
+          pkgs.typescript-language-server
           # includes astal3 astal4 astal-io by default
           (ags.packages.${system}.default.override {
             extraPackages = [
