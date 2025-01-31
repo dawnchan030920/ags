@@ -17,6 +17,11 @@
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    extraAgsLib = with ags.packages.${system}; [
+      battery
+      apps
+      hyprland
+    ];
   in {
     packages.${system} = {
       default = ags.lib.bundle {
@@ -26,10 +31,7 @@
         entry = "app.ts";
 
         # additional libraries and executables to add to gjs' runtime
-        extraPackages = [
-          # ags.packages.${system}.battery
-          # pkgs.fzf
-        ];
+        extraPackages = extraAgsLib ++ [];
       };
     };
 
@@ -37,11 +39,10 @@
       default = pkgs.mkShell {
         buildInputs = [
           pkgs.typescript-language-server
+          pkgs.biome
           # includes astal3 astal4 astal-io by default
           (ags.packages.${system}.default.override {
-            extraPackages = [
-              # cherry pick packages
-            ];
+            extraPackages = extraAgsLib;
           })
         ];
       };
