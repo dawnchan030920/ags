@@ -40,10 +40,10 @@ function Workspaces() {
 }
 
 function Clock() {
-	const time = Variable<string>("").poll(60000, () => {
-		const dateTime = GLib.DateTime.new_now_local();
-		return `${dateTime.get_month()}月${dateTime.get_day_of_month()}日 ${dateTime.get_hour()}:${dateTime.get_minute()}`;
-	});
+	const time = Variable<string>("").poll(
+		60000,
+		() => GLib.DateTime.new_now_local().format("%-m月%-d日 %H:%M") ?? "",
+	);
 
 	return <label onDestroy={() => time.drop()} label={time()} />;
 }
