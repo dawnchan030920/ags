@@ -68,10 +68,11 @@ function FocusedClient() {
 
 	return (
 		<box>
-			{focused.as((client) => (
-				// biome-ignore lint/a11y/noLabelWithoutControl: <explanation>
-				<label label={bind(client, "class")} />
-			))}
+			{focused.as(
+				(client) =>
+					// biome-ignore lint/a11y/noLabelWithoutControl: <explanation>
+					client && <label label={bind(client, "class").as(String)} />,
+			)}
 		</box>
 	);
 }
