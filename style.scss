@@ -1,20 +1,42 @@
 // https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
 $fg-color: #{"@theme_fg_color"};
 $bg-color: #{"@theme_bg_color"};
+$acc-bg-color: #{"@theme_selected_bg_color"};
+$acc-fg-color: #{"@theme_selected_fg_color"};
 
-window.Bar {
+.widget-group {
+    background: $bg-color;
+    padding: 0 5px;
+    border-radius: 8px;
+    margin: 0 5px;
+}
+
+.widget-item {
+    padding: 0 5px;
+    color: $fg-color;
+}
+
+window.bar {
     background: transparent;
     color: $fg-color;
     font-weight: bold;
+    font-size: smaller;
 
     >centerbox {
-        background: $bg-color;
-        border-radius: 10px;
-        margin: 8px;
+        margin-top: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
     }
+}
 
-    button {
-        border-radius: 8px;
-        margin: 2px;
-    }
+button {
+    padding: 0 5px;
+    border-radius: 0;
+    background: transparent;
+}
+
+
+.workspace-focused {
+    background: $acc-bg-color;
+    color: $acc-fg-color;
 }

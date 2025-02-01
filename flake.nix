@@ -21,6 +21,8 @@
       battery
       apps
       hyprland
+      tray
+      network
     ];
   in {
     packages.${system} = {
@@ -40,6 +42,7 @@
         buildInputs = [
           pkgs.typescript-language-server
           pkgs.biome
+          pkgs.watchexec
           # includes astal3 astal4 astal-io by default
           (ags.packages.${system}.default.override {
             extraPackages = extraAgsLib;
