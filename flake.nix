@@ -23,6 +23,7 @@
       hyprland
       tray
       network
+      wireplumber
     ];
   in {
     packages.${system} = {
