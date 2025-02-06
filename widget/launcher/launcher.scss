@@ -1,0 +1,48 @@
+
+// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
+$fg-color: #{"@theme_fg_color"};
+$bg-color: #{"@theme_bg_color"};
+$acc-bg-color: #{"@theme_selected_bg_color"};
+$acc-fg-color: #{"@theme_selected_fg_color"};
+$border-color: #{"@borders"};
+
+.launcher-container {
+  background: transparent;
+  >box {
+    background: transparent;
+  }
+}
+
+.launcher {
+  background: $bg-color;
+  color: $fg-color;
+  padding: 24px 32px;
+  border-radius: 16px;
+  border: 2px solid $border-color;
+
+  entry {
+    margin-bottom: 16px;
+  }
+}
+
+.launcher-app-item {
+  padding: 8px 12px;
+  icon {
+    font-size: 3em;
+    margin-right: 16px;
+  }
+  label.name {
+    font-weight: bold;
+  }
+  label.description {
+    font-size: 0.8em;
+    font-weight: normal;
+  }
+}
+
+.not-found {
+  icon {
+    font-size: 2em;
+  }
+  padding: 16px;
+}

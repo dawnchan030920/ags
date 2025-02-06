@@ -9,6 +9,7 @@ import { Wifi } from "./Wifi";
 import { Workspaces } from "./Workspaces";
 import { OS } from "./OS";
 import { Audio } from "./Audio";
+import * as launcher from "../interface/launcher";
 
 type Children = {
 	child?: JSX.Element | Binding<JSX.Element> | Binding<Array<JSX.Element>>;
@@ -42,7 +43,7 @@ export default function Bar(monitor: gtk3.Gdk.Monitor) {
 					<WidgetGroup>
 						<WidgetSegment>
 							<OS />
-							<LauncherTrigger open={() => print("launcher trigger")} />
+							<LauncherTrigger open={() => launcher.show()} />
 						</WidgetSegment>
 						<WidgetSegment>
 							<Workspaces />
