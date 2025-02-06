@@ -1,0 +1,73 @@
+// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
+$fg-color: #{"@theme_fg_color"};
+$bg-color: #{"@theme_bg_color"};
+$acc-bg-color: #{"@theme_selected_bg_color"};
+$acc-fg-color: #{"@theme_selected_fg_color"};
+
+@mixin space-x($space) {
+    > *:not(:last-child) {
+        margin-right: $space;
+    }
+}
+
+.bar {
+    background: transparent;
+    font-size: small;
+    font-weight: bold;
+    >centerbox {
+        margin: 10px 10px 0 10px;
+    }
+}
+
+.widget-segment {
+    padding: 4px 16px;
+    background: $bg-color;
+    color: $fg-color;
+    border-radius: 8px;
+    @include space-x(12px);
+}
+
+.widget-group {
+    @include space-x(12px);
+}
+
+button {
+    background: $bg-color;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+}
+
+menubutton {
+    background: $bg-color;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+}
+
+.workspaces {
+    @include space-x(4px);
+}
+
+.workspace-base {
+    padding: 0 2px;
+    border-radius: 4px;
+}
+
+.inactive-workspace {
+    @extend .workspace-base;
+}
+
+.active-workspace {
+    background: $acc-bg-color;
+    color: $acc-fg-color;
+    @extend .workspace-base;
+}
+
+.battery-level {
+    @include space-x(2px);
+}
+
+.system-tray {
+    @include space-x(8px);
+}
