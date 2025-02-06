@@ -11,6 +11,11 @@ export default function Launcher() {
 	const width = Variable(1000);
 	const text = Variable("");
 	const list = text((text) => apps.fuzzy_query(text).slice(0, MAX_ITEMS));
+	const onEnter = () => {
+		const apps = list.get();
+		if (apps.length > 0) apps[0].launch();
+		hide();
+	};
 	return (
 		<window
 			name={windowName}
@@ -38,6 +43,7 @@ export default function Launcher() {
 							placeholderText="搜索"
 							text={text()}
 							onChanged={(self) => text.set(self.text)}
+							onActivate={onEnter}
 						/>
 						<box>
 							{list.as((list) => {
