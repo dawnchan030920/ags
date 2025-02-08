@@ -14,7 +14,11 @@ export function Focused() {
 						<box spacing={6}>
 							<icon icon={client.initialClass} />
 							{/* biome-ignore lint/a11y/noLabelWithoutControl: <explanation> */}
-							<label label={bind(client, "title")} />
+							<label
+								label={bind(client, "title")}
+								maxWidthChars={30}
+								truncate
+							/>
 						</box>
 					);
 
