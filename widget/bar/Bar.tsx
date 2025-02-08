@@ -54,6 +54,8 @@ export default function Bar(monitor: gtk3.Gdk.Monitor) {
 					<WidgetGroup>
 						<WidgetSegment>
 							<Clock />
+						</WidgetSegment>
+						<WidgetSegment>
 							<Focused />
 						</WidgetSegment>
 					</WidgetGroup>

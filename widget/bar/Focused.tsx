@@ -1,5 +1,5 @@
 import { bind } from "astal";
-import Hyprland from "gi://AstalHyprland?version=0.1";
+import Hyprland from "gi://AstalHyprland";
 
 export function Focused() {
 	const hyprland = Hyprland.get_default();
@@ -9,8 +9,14 @@ export function Focused() {
 	return (
 		<box>
 			{focusedClient.as((client) => {
-				// biome-ignore lint/a11y/noLabelWithoutControl: <explanation>
-				if (client) return <label label={client.class} />;
+				if (client)
+					return (
+						<box spacing={6}>
+							<icon icon={client.initialClass} />
+							{/* biome-ignore lint/a11y/noLabelWithoutControl: <explanation> */}
+							<label label={bind(client, "title")} />
+						</box>
+					);
 
 				return (
 					// biome-ignore lint/a11y/noLabelWithoutControl: <explanation>
