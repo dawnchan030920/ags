@@ -1,4 +1,4 @@
-import { bind } from "astal";
+import { bind, execAsync } from "astal";
 import Hyprland from "gi://AstalHyprland";
 
 export function Focused() {
@@ -7,7 +7,14 @@ export function Focused() {
 	const focusedWorkspace = bind(hyprland, "focusedWorkspace");
 
 	return (
-		<box>
+		// biome-ignore lint/a11y/useButtonType: <explanation>
+		<button
+			onClicked={() =>
+				execAsync("hyprctl dispatch overview:toggle")
+					.then((out) => console.log(out))
+					.catch((err) => console.log(err))
+			}
+		>
 			{focusedClient.as((client) => {
 				if (client)
 					return (
@@ -31,6 +38,6 @@ export function Focused() {
 					/>
 				);
 			})}
-		</box>
+		</button>
 	);
 }
