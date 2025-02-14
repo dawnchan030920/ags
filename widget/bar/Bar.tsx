@@ -10,6 +10,7 @@ import { Workspaces } from "./Workspaces";
 import { OS } from "./OS";
 import { Audio } from "./Audio";
 import * as launcher from "../interface/launcher";
+import Media from "./Media";
 
 type Children = {
 	child?: JSX.Element | Binding<JSX.Element> | Binding<Array<JSX.Element>>;
@@ -47,6 +48,7 @@ export default function Bar(monitor: gtk3.Gdk.Monitor) {
 						</WidgetSegment>
 						<WidgetSegment>
 							<Workspaces />
+							<Focused />
 						</WidgetSegment>
 					</WidgetGroup>
 				</box>
@@ -55,14 +57,12 @@ export default function Bar(monitor: gtk3.Gdk.Monitor) {
 						<WidgetSegment>
 							<Clock />
 						</WidgetSegment>
-						<WidgetSegment>
-							<Focused />
-						</WidgetSegment>
 					</WidgetGroup>
 				</box>
 				<box hexpand halign={gtk3.Gtk.Align.END}>
 					<WidgetGroup>
 						<WidgetSegment>
+							<Media />
 							<SystemTray />
 						</WidgetSegment>
 						<WidgetSegment>

@@ -17,57 +17,67 @@ $acc-fg-color: #{"@theme_selected_fg_color"};
     >centerbox {
         margin: 6px 6px 0 6px;
     }
-}
 
-.widget-segment {
-    padding: 4px 16px;
-    background: $bg-color;
-    color: $fg-color;
-    border-radius: 8px;
-    @include space-x(12px);
-}
+    .widget-segment {
+        padding: 4px 16px;
+        background: $bg-color;
+        color: $fg-color;
+        border-radius: 8px;
+        @include space-x(12px);
+    }
+    
+    .widget-group {
+        @include space-x(12px);
+    }
+    
+    button {
+        background: $bg-color;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+    }
+    
+    menubutton {
+        background: $bg-color;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+    }
+    
+    .workspaces {
+        @include space-x(4px);
+    }
+    
+    .workspace-base {
+        padding: 0 2px;
+        border-radius: 4px;
+    }
+    
+    .inactive-workspace {
+        @extend .workspace-base;
+    }
+    
+    .active-workspace {
+        background: $acc-bg-color;
+        color: $acc-fg-color;
+        @extend .workspace-base;
+    }
+    
+    .battery-level {
+        @include space-x(2px);
+    }
+    
+    .system-tray {
+        @include space-x(8px);
+    }
 
-.widget-group {
-    @include space-x(12px);
-}
-
-button {
-    background: $bg-color;
-    margin: 0;
-    padding: 0;
-    border-radius: 0;
-}
-
-menubutton {
-    background: $bg-color;
-    margin: 0;
-    padding: 0;
-    border-radius: 0;
-}
-
-.workspaces {
-    @include space-x(4px);
-}
-
-.workspace-base {
-    padding: 0 2px;
-    border-radius: 4px;
-}
-
-.inactive-workspace {
-    @extend .workspace-base;
-}
-
-.active-workspace {
-    background: $acc-bg-color;
-    color: $acc-fg-color;
-    @extend .workspace-base;
-}
-
-.battery-level {
-    @include space-x(2px);
-}
-
-.system-tray {
-    @include space-x(8px);
+    .media {
+        .cover {
+            min-height: 1.2em;
+            min-width: 1.2em;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
 }

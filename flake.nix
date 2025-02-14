@@ -24,6 +24,7 @@
       tray
       network
       wireplumber
+      mpris
     ];
   in {
     packages.${system} = {
